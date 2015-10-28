@@ -13,21 +13,68 @@
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+
 </head>
 
 <body>
 
-<div class='pig-bg'>
-	<div id='hat' class='hat-img target'>hat</div>
-	<div id='head' class='head-img target'>head</div>
-	<div id='body' class='body-img target'>body</div>
-	<div id='waist' class='waist-img target'>waist</div>
-</div>
-<div class='fire-btn'>fire</div>
+	<div class='pig-bg'>
+		<div id='hat' class='hat-img target' onClick='setTarget("hat")'> <div class='targetted'></div></div>
+		<div id='head' class='head-img target' onClick='setTarget("head")'></div>
+		<div id='body' class='body-img target' onClick='setTarget("body")'></div>
+		<div id='waist' class='waist-img target' onClick='setTarget("waist")'></div>
+	</div>
+	<div class='fire-btn' onClick='fireCostume()'>fire</div>
 	
 
-<script>
+	<script>
+	$( document ).ready(function() {
 
+	});
+
+	var target = 'hat';
+	var targetNum = '0';
+
+	function setTarget(clickTarget) {
+target = clickTarget; //sets the target to value passed from click object
+
+//display target image on clicked area by adding content
+//remove target image from all others
+if (target == "hat") {
+	$("#hat").html("<div class='targetted'></div>");
+	$('#head').html("");
+	$('#body').html("");
+	$('#waist').html("");
+} else if (target == "head") {
+	$('#hat').html("");
+	$('#head').html("<div class='targetted'></div>");
+	$('#body').html("");
+	$('#waist').html("");
+} else if (target == "body") {
+	$('#hat').html(""); 
+	$('#head').html("");
+	$('#body').html("<div class='targetted'></div>");
+	$('#waist').html("");
+} else if (target == "waist") {
+	$('#hat').html(""); 
+	$('#head').html("");
+	$('#body').html("");
+	$('#waist').html("<div class='targetted'></div>");
+}
+console.log(target);
+}
+
+function fireCostume() {
+	//find a random image using tarteg and targetNum
+	var min = 0;
+	var max = 10;
+	var random = Math.floor(Math.random() * (max - min + 1)) + min;
+	//play smoke animation
+
+	//place chosen image
+	console.log("just placed image " + target + "/" + targetNum + ".png. in class ");
+}
 </script>
 
 
