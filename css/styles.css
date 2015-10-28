@@ -1,3 +1,38 @@
-.submit-button {
-    
+.pig-bg{
+    width: 600px;
+    height: 600px;
+    background-color: pink;
+    margin: 0 auto;
+}
+
+.target {
+    border: 1px #000 solid;
+    height: calc(150px - 2px);
+
+}
+
+.hat-img {
+
+}
+
+.head-img {
+
+}
+
+.body-img {
+
+}
+
+.waist-img {
+
+}
+
+.fire-btn {
+    background-color: red;
+    width: 300px;
+    height: 200px;
+    position: fixed;
+    bottom: 0px;
+    margin-left: calc(50% - 150px);
+	
 }
