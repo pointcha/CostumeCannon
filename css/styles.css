@@ -18,20 +18,24 @@
     height: 150px;
 }
 
-.hat-img {
-
+.smoke {
+	display: none;
+    width: 700px;
+    height: 600px;
+    background-color: rgba(255,0,0,0.3);
+    position: fixed;
+    top: 0;
+    margin-left: calc(50% - 350px);
 }
 
-.head-img {
-
+.smoke.clear {
+  opacity: 1;
+    amimation: fade 2s linear;
 }
 
-.body-img {
-
-}
-
-.waist-img {
-
+@keyframes smokefade {
+  0%,100% { opacity: 0 }
+  50% { opacity: 1 }
 }
 
 .fire-btn {
