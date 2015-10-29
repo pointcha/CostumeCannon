@@ -15,6 +15,7 @@
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
 </head>
 
@@ -30,7 +31,8 @@
 	
 	<div class='smoke'></div>
 	<div class='bang'></div>
-	<div class='fire-btn' onClick='fireCostume()'>fire</div>
+	<div class='cannon'></div>
+	<div class='fire-btn' onClick='fireCostume()'></div>
 	
 
 	<script>
@@ -78,16 +80,26 @@ function fireCostume() {
 	targetNum = Math.floor(Math.random() * (max - min + 1)) + min;
 
 	//play sound and smoke animation
+	$('.fire-btn').addClass("pressed"); 
+	setTimeout(changeBack,100);
+
 audio.play();
 
 $('.smoke').finish().fadeIn(10).delay(100).fadeOut(1000);
 $('.bang').finish().fadeIn(5).delay(20).fadeOut(300);
+$( "body" ).effect( "shake", {times:4, distance:10}, 500);
+
 
 
 
 	//place chosen image
 	$('.'+target+'-img').css('background-image', 'url(../img/'+target+'/'+targetNum+'.png)');
 }
+
+function changeBack() {
+    $('.fire-btn').removeClass("pressed");
+  }
+
 </script>
 
 
