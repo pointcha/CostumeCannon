@@ -11,21 +11,22 @@ body {
 	.pig-bg{
     width: 600px;
     height: 600px;
-    background-image: url("../img/theMan.png");
+    background-image: url("../img/theMan2.png");
     margin: 0 auto;
 }
 
 .target {
-    border: 1px #000 solid;
+    /* border: 1px #000 solid; */
     height: calc(150px - 2px);
+    cursor: crosshair;
 }
 
 .targetted {
     position: fixed;
     margin: 0 calc(300px - 75px);
-    background: red;
     width: 150px;
     height: 150px;
+    background-image: url("../img/scope.png");
 }
 
 .smoke {
@@ -54,11 +55,28 @@ body {
 }
 
 .fire-btn {
-    background-color: red;
+    width: 136px;
+    height: 59px;
+    position: fixed;
+    bottom: 3px;
+    margin-left: calc(50% - 68px);
+    background-image: url("../img/button_1.png");
+    cursor: pointer;
+
+}
+
+.fire-btn.pressed {
+    background-image: url("../img/button_2.png");
+    cursor: none;
+
+}
+
+.cannon {
     width: 300px;
     height: 200px;
     position: fixed;
     bottom: 0px;
     margin-left: calc(50% - 150px);
+    background-image: url("../img/cannon.png");
 
 }
