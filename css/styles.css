@@ -1,4 +1,14 @@
-.pig-bg{
+body {
+
+    background-image: url("../img/bg.png");
+    background-size: auto 600px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+
+
+	.pig-bg{
     width: 600px;
     height: 600px;
     background-image: url("../img/theMan.png");
@@ -19,18 +29,23 @@
 }
 
 .smoke {
-	display: none;
+    display: none;
+    width: 640px;
+    height: 600px;
+    position: fixed;
+    top: 0;
+    margin-left: calc(50% - 320px);
+    background-image: url("../img/smoke.png");
+}
+
+.bang {
+    display: none;
     width: 700px;
     height: 600px;
-    background-color: rgba(255,0,0,0.3);
     position: fixed;
     top: 0;
     margin-left: calc(50% - 350px);
-}
-
-.smoke.clear {
-  opacity: 1;
-    amimation: fade 2s linear;
+    background-image: url("../img/bang.png");
 }
 
 @keyframes smokefade {
