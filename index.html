@@ -27,7 +27,9 @@
 		<div id='waist' class='waist-img target' onClick='setTarget("waist")'></div>
 	</div>
 
+	
 	<div class='smoke'></div>
+	<div class='bang'></div>
 	<div class='fire-btn' onClick='fireCostume()'>fire</div>
 	
 
@@ -38,6 +40,7 @@
 
 	var target = 'hat';
 	var targetNum = '0';
+	var audio = new Audio('../audio/boom.mp3');
 
 	function setTarget(clickTarget) {
 target = clickTarget; //sets the target to value passed from click object
@@ -69,11 +72,18 @@ console.log(target);
 }
 
 function fireCostume() {
-	//find a random image using tarteg and targetNum
+	//find a random image using target and targetNum
 	var min = 0;
 	var max = 10;
 	targetNum = Math.floor(Math.random() * (max - min + 1)) + min;
-	//play smoke animation
+
+	//play sound and smoke animation
+audio.play();
+
+$('.smoke').finish().fadeIn(10).delay(100).fadeOut(1000);
+$('.bang').finish().fadeIn(5).delay(20).fadeOut(300);
+
+
 
 	//place chosen image
 	$('.'+target+'-img').css('background-image', 'url(../img/'+target+'/'+targetNum+'.png)');
