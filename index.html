@@ -43,11 +43,15 @@
 
 	<script>
 	$( document ).ready(function() {
-
+var audio = new Audio('../audio/pigsong.mp3');
+audio.loop = true;
+	audio.play();
 	});
 
 	var target = 'hat';
 	var targetNum = '0';
+
+
 
 	function setTarget(clickTarget) {
 target = clickTarget; //sets the target to value passed from click object
@@ -108,6 +112,13 @@ function clearCostume() {
   $('.head-img').css('background-image', 'none');
   $('.body-img').css('background-image', 'none');
   $('.waist-img').css('background-image', 'none');
+}
+
+function eyeBlink() {
+	function blink() {
+    setTimeout(eyeBlink, 5000 + ((Math.random() - 0.5) * 2000));
+}
+
 }
 
 </script>
