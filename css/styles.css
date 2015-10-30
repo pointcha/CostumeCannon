@@ -93,3 +93,26 @@ body {
     font-size: 1.3em;
     font-family: 'Architects Daughter', cursive;
 }
+
+.clear {
+    position: fixed;
+    bottom: 40px;
+    left: 50px;
+    font-size: 1.3em;
+    cursor: pointer;
+    font-family: 'Architects Daughter', cursive;
+}
+
+.activity {
+    position: fixed;
+    bottom: 40px;
+    left: 180px;
+    font-size: 1.3em;
+    cursor: pointer;
+    font-family: 'Architects Daughter', cursive;
+}
+
+.clean {
+    text-decoration: none;
+    color: #000;
+}

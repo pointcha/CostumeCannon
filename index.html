@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Title</title>
+	<title>Pig Stylin': Costume Cannon</title>
 	<meta name="descriptionion" content="The HTML5">
 	<meta name="Steven Rolls" content="">
 
@@ -31,7 +31,13 @@
 	<div class='smoke'></div>
 	<div class='bang'></div>
 	<div class='cannon'></div>
-	<div class='instruct-wrapper'><div class="instruct">Click on the pig to target 1 of 4 areas. <br /> Click FIRE to launch some style.</div><div>
+
+
+		<div class="clear" onClick='clearCostume()'>CLEAR</div>
+		<div class="activity"><a class="clean" href="../img/activity_sheet.pdf" download="pig_style_sheet.pdf">DOWNLOAD ACTIVITY</a></div>
+
+		<div class="instruct">Click on the pig to target 1 of 4 areas. <br /> Click FIRE to launch some style.</div>
+
 	<div class='fire-btn' onClick='fireCostume()'></div>
 	
 
@@ -95,6 +101,13 @@ function fireCostume() {
 
 function changeBack() {
 	$('.fire-btn').removeClass("pressed");
+}
+
+function clearCostume() {
+  $('.hat-img').css('background-image', 'none');
+  $('.head-img').css('background-image', 'none');
+  $('.body-img').css('background-image', 'none');
+  $('.waist-img').css('background-image', 'none');
 }
 
 </script>
