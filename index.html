@@ -9,13 +9,12 @@
 	<meta name="Steven Rolls" content="">
 
 	<link rel="stylesheet" href="css/styles.css?v=1.0">
-  <link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reset.css">
 
-  <!--[if lt IE 9]>
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
 </head>
 
@@ -32,6 +31,7 @@
 	<div class='smoke'></div>
 	<div class='bang'></div>
 	<div class='cannon'></div>
+	<div class='instruct-wrapper'><div class="instruct">Click on the pig to target 1 of 4 areas. <br /> Click FIRE to launch some style.</div><div>
 	<div class='fire-btn' onClick='fireCostume()'></div>
 	
 
@@ -42,7 +42,6 @@
 
 	var target = 'hat';
 	var targetNum = '0';
-	var audio = new Audio('../audio/boom.mp3');
 
 	function setTarget(clickTarget) {
 target = clickTarget; //sets the target to value passed from click object
@@ -83,22 +82,20 @@ function fireCostume() {
 	$('.fire-btn').addClass("pressed"); 
 	setTimeout(changeBack,100);
 
-audio.play();
+	var audio = new Audio('../audio/boom.mp3');
+	audio.play();
 
-$('.smoke').finish().fadeIn(10).delay(100).fadeOut(1000);
-$('.bang').finish().fadeIn(5).delay(20).fadeOut(300);
-$( "body" ).effect( "shake", {times:4, distance:10}, 500);
-
-
-
+	$('.smoke').finish().fadeIn(10).delay(100).fadeOut(1000);
+	$('.bang').finish().fadeIn(5).delay(20).fadeOut(300);
+	$( "body" ).effect( "shake", {times:4, distance:10}, 500);
 
 	//place chosen image
 	$('.'+target+'-img').css('background-image', 'url(../img/'+target+'/'+targetNum+'.png)');
 }
 
 function changeBack() {
-    $('.fire-btn').removeClass("pressed");
-  }
+	$('.fire-btn').removeClass("pressed");
+}
 
 </script>
 
