@@ -7,7 +7,6 @@ body {
 }
 
 
-
 	.pig-bg{
     width: 600px;
     height: 600px;
@@ -17,7 +16,7 @@ body {
 
 .target {
     /* border: 1px #000 solid; */
-    height: calc(150px - 2px);
+    height: 150px;
     cursor: crosshair;
 }
 
@@ -74,9 +73,23 @@ body {
 .cannon {
     width: 300px;
     height: 200px;
+    margin-left: 40px;
     position: fixed;
     bottom: 0px;
     margin-left: calc(50% - 150px);
     background-image: url("../img/cannon.png");
 
+}
+
+.instruct {
+    width: 500px;
+    color: #000;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    margin-left: 30px;
+    text-align: center;
+    line-height: 1.6em;
+    font-size: 1.3em;
+    font-family: 'Architects Daughter', cursive;
 }
