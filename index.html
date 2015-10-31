@@ -43,9 +43,9 @@
 
 	<script>
 	$( document ).ready(function() {
-var audio = new Audio('../audio/pigsong.mp3');
-audio.loop = true;
-	audio.play();
+//var audio = new Audio('../audio/pigsong.mp3');
+//audio.loop = true;
+//	audio.play();
 	});
 
 	var target = 'hat';
@@ -58,26 +58,31 @@ target = clickTarget; //sets the target to value passed from click object
 
 //display target image on clicked area by adding content
 //remove target image from all others
-if (target == "hat") {
-	$("#hat").html("<div class='targetted'></div>");
+switch(target) {
+case "hat":
+$("#hat").html("<div class='targetted'></div>");
 	$('#head').html("");
 	$('#body').html("");
 	$('#waist').html("");
-} else if (target == "head") {
-	$('#hat').html("");
+	break;
+	case "head":
+$('#hat').html("");
 	$('#head').html("<div class='targetted'></div>");
 	$('#body').html("");
 	$('#waist').html("");
-} else if (target == "body") {
-	$('#hat').html(""); 
+	break;
+	case "body":
+$('#hat').html(""); 
 	$('#head').html("");
 	$('#body').html("<div class='targetted'></div>");
 	$('#waist').html("");
-} else if (target == "waist") {
+	break;
+	case "waist":
 	$('#hat').html(""); 
 	$('#head').html("");
 	$('#body').html("");
 	$('#waist').html("<div class='targetted'></div>");
+	break;
 }
 console.log(target);
 }
