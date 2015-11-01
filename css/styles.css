@@ -7,11 +7,36 @@ body {
 }
 
 
-	.pig-bg{
+.pig-bg{
     width: 600px;
     height: 600px;
     background-image: url("../img/theMan2.png");
     margin: 0 auto;
+}
+
+.eyes {
+    width: 79px;
+    height: 9px;
+    position: fixed;
+    margin-top: 21px;
+    margin-left: 282px;
+    background-repeat: no-repeat;
+    background-image: url("../img/eyes.png");
+}
+
+.blink {
+    background-size: 79px 1px;
+}
+
+.title{
+    position: relative;
+    float: left;
+    top: 30px;
+    left: 30px;
+    width: 300px;
+    height: 155px;
+    z-index: -2;
+    background-image: url("../img/title.png");
 }
 
 .target {
@@ -77,6 +102,7 @@ body {
     position: fixed;
     bottom: 0px;
     margin-left: calc(50% - 150px);
+    pointer-events: none;
     background-image: url("../img/cannon.png");
 
 }
@@ -94,19 +120,26 @@ body {
     font-family: 'Architects Daughter', cursive;
 }
 
-.clear {
+.wrapper {
+    width: calc(50% - 180px);
     position: fixed;
-    bottom: 40px;
-    left: 50px;
-    font-size: 1.3em;
-    cursor: pointer;
-    font-family: 'Architects Daughter', cursive;
+    bottom: 20px;
+    right: 20px;
+    text-align: center;
+}
+
+.clear {
 }
 
 .activity {
-    position: fixed;
-    bottom: 40px;
-    left: 180px;
+}
+
+.button {
+    border: #000 1px solid;
+    margin: 10px auto;
+    border-radius: 6px;
+    max-width: 300px;
+    padding: 5px;
     font-size: 1.3em;
     cursor: pointer;
     font-family: 'Architects Daughter', cursive;

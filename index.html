@@ -20,8 +20,11 @@
 
 <body>
 
+	<div class='title'></div>
+
 	<div class='pig-bg'>
 		<div id='hat' class='hat-img target' onClick='setTarget("hat")'> <div class='targetted'></div></div>
+		<div class='eyes'></div>
 		<div id='head' class='head-img target' onClick='setTarget("head")'></div>
 		<div id='body' class='body-img target' onClick='setTarget("body")'></div>
 		<div id='waist' class='waist-img target' onClick='setTarget("waist")'></div>
@@ -32,21 +35,23 @@
 	<div class='bang'></div>
 	<div class='cannon'></div>
 
-
-		<div class="clear" onClick='clearCostume()'>CLEAR</div>
-		<div class="activity"><a class="clean" href="../img/activity_sheet.pdf" download="pig_style_sheet.pdf">DOWNLOAD ACTIVITY</a></div>
-
-		<div class="instruct">Click on the pig to target 1 of 4 areas. <br /> Click FIRE to launch some style.</div>
+	<div class="wrapper">
+		<div class="clear button" onClick='clearCostume()'>CLEAR COSTUME</div>
+		<div class="activity button"><a class="clean" href="../img/activity_sheet.pdf" download="pig_style_sheet.pdf">DOWNLOAD ACTIVITY</a></div>
+	</div>
+	<!-- <div class="instruct">Click on the pig to target 1 of 4 areas. <br /> Click FIRE to launch some style.</div> -->
 
 	<div class='fire-btn' onClick='fireCostume()'></div>
 	
 
 	<script>
 	$( document ).ready(function() {
+		eyeBlink();
+//background audio
 //var audio = new Audio('../audio/pigsong.mp3');
 //audio.loop = true;
-//	audio.play();
-	});
+//audio.play();
+});
 
 	var target = 'hat';
 	var targetNum = '0';
@@ -59,20 +64,20 @@ target = clickTarget; //sets the target to value passed from click object
 //display target image on clicked area by adding content
 //remove target image from all others
 switch(target) {
-case "hat":
-$("#hat").html("<div class='targetted'></div>");
+	case "hat":
+	$("#hat").html("<div class='targetted'></div>");
 	$('#head').html("");
 	$('#body').html("");
 	$('#waist').html("");
 	break;
 	case "head":
-$('#hat').html("");
+	$('#hat').html("");
 	$('#head').html("<div class='targetted'></div>");
 	$('#body').html("");
 	$('#waist').html("");
 	break;
 	case "body":
-$('#hat').html(""); 
+	$('#hat').html(""); 
 	$('#head').html("");
 	$('#body').html("<div class='targetted'></div>");
 	$('#waist').html("");
@@ -90,21 +95,35 @@ console.log(target);
 function fireCostume() {
 	//find a random image using target and targetNum
 	var min = 0;
-	var max = 10;
-	targetNum = Math.floor(Math.random() * (max - min + 1)) + min;
+	var max = 10; //number of images in each folder
+	targetNumRand = Math.floor(Math.random() * (max - min + 1)) + min;
+	//check to see if the random number is the same as the current image
+	//if it is, change it
+	if (targetNum == targetNumRand) {
+		if (targetNumRand == max) {
+			targetNumRand = targetNumRand - 1;
+		} else {
+			targetNumRand = targetNumRand + 1;
+		}		
+	} else {
+		targetNum = targetNumRand;
+	}
 
-	//play sound and smoke animation
+//press fire button
 	$('.fire-btn').addClass("pressed"); 
 	setTimeout(changeBack,100);
 
+//play sound and smoke animation
 	var audio = new Audio('../audio/boom.mp3');
 	audio.play();
 
 	$('.smoke').finish().fadeIn(10).delay(100).fadeOut(1000);
 	$('.bang').finish().fadeIn(5).delay(20).fadeOut(300);
+
+//shake screen
 	$( "body" ).effect( "shake", {times:4, distance:10}, 500);
 
-	//place chosen image
+//place chosen image
 	$('.'+target+'-img').css('background-image', 'url(../img/'+target+'/'+targetNum+'.png)');
 }
 
@@ -113,17 +132,20 @@ function changeBack() {
 }
 
 function clearCostume() {
-  $('.hat-img').css('background-image', 'none');
-  $('.head-img').css('background-image', 'none');
-  $('.body-img').css('background-image', 'none');
-  $('.waist-img').css('background-image', 'none');
+	$('.hat-img').css('background-image', 'none');
+	$('.head-img').css('background-image', 'none');
+	$('.body-img').css('background-image', 'none');
+	$('.waist-img').css('background-image', 'none');
 }
 
 function eyeBlink() {
-	function blink() {
-    setTimeout(eyeBlink, 5000 + ((Math.random() - 0.5) * 2000));
+		$(".eyes").addClass("blink");
+		setTimeout(eyeOpen, 200);
 }
 
+function eyeOpen() {
+$(".eyes").removeClass("blink");
+		setTimeout(eyeBlink, 3000 + ((Math.random() - 0.5) * 2000));	
 }
 
 </script>
